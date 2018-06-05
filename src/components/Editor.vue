@@ -726,7 +726,6 @@ export default {
 <style>
 @import '../assets/css/normalize.css';
 @import '../../node_modules/highlight.js/styles/atom-one-light.css';
-@import '../../static/themes/github.css';
 @import '../assets/css/icons.css';
 @import '../assets/css/toolbar.css';
 @import '../assets/css/scrollbar.css';
