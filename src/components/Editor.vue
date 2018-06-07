@@ -61,6 +61,7 @@ import 'brace/theme/chrome'
 
 /* eslint-disable no-useless-escape */
 export default {
+  name: 'md-editor',
   data() {
     return {
       editor: null,
