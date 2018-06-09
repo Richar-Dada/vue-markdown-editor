@@ -10,7 +10,7 @@
   background: #fcfcfc;
   border: 0;
   border-bottom: 1px dashed #BBB;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   opacity: 1;

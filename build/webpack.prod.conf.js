@@ -18,6 +18,15 @@ const webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': env
+    }),
+    new UglifyJsPlugin({ 
+      uglifyOptions: { 
+        compress: { 
+          warnings: false 
+        } 
+      }, 
+      sourceMap: config.build.productionSourceMap, 
+      parallel: true 
     })
   ]
 })

@@ -1,21 +1,44 @@
 # vue-markdown-editor
 
-> A Vue.js project
+markdown editor component for Vue, support SPA and SSR
 
-## Build Setup
+## Install
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+### NPM
+```
+npm install markdown-editor-vue --save
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Mount
+```
+import Vue from 'vue'
+import MdEditor from 'markdown-editor-vue'
+
+Vue.use(MdEditor)
+```
+
+### demo
+```
+<template>
+    <md-editor height="500px" @change="handleChange"></md-editor>
+</template>
+
+// nuxt or ssr
+<template>
+    <no-ssr>
+        <md-editor height="500px" @change="handleChange"></md-editor>
+    </no-ssr>
+</template>
+
+export default {
+    name: 'demo',
+    methods: {
+        handleChange (content) {
+            console.log(content)
+        }
+    }
+}
+
+```
+- height--set the editor height(设置编辑器的高度) 
+- change--get the editor content

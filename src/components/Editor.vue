@@ -1,5 +1,5 @@
 <template>
-  <div class="editor-container">
+  <div class="editor-container" :style="{'height': height}">
     <!-- Toolbar -->
     <div class="editor-toolbar"
       :class="{
@@ -17,7 +17,6 @@
     </div>
     <div class="editor-bottombar">
       <div class="status-bar">
-        <img class="logo" src="static/img/logo.jpeg" alt="" />
         <span class="lines">lines: {{lines}}</span>
         <span class="words">words: {{words}}</span>
       </div>
@@ -62,6 +61,7 @@ import 'brace/theme/chrome'
 /* eslint-disable no-useless-escape */
 export default {
   name: 'md-editor',
+  props: ['height'],
   data() {
     return {
       editor: null,
@@ -148,6 +148,7 @@ export default {
           this.$refs.preview,
           markdown.renderToIncrementalDOM(content)
         )
+        this.$emit('change', content)
       }, 300))
 
       let editorScroll = false
@@ -731,17 +732,17 @@ export default {
 @import '../assets/css/toolbar.css';
 @import '../assets/css/scrollbar.css';
 
-html,
-body {
-  overflow: hidden;
-}
-
 .pull-right {
   float: right;
 }
 
+.editor-container{
+  position: relative;
+  min-height: 500px;
+}
+
 .editor {
-  position: fixed !important;
+  position: absolute !important;
   left: 0;
   right: 0;
   top: 50px;
@@ -766,7 +767,7 @@ body {
 }
 
 .editor-preview {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 50px;
@@ -846,7 +847,7 @@ body {
   box-sizing: border-box;
   user-select: none;
   background: #fcfcfc;
-  position: fixed;
+  position: absolute;
   border-top: 1px dashed #BBB;
   left: 0;
   bottom: 0;
@@ -879,7 +880,7 @@ body {
 }
 
 .html-code-preview {
-  position: fixed;
+  position: absolute;
   top: 50px;
   right: 0;
   bottom: 0;
