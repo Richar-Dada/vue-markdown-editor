@@ -47,7 +47,6 @@
 import IncrementalDOM from 'incremental-dom'
 import { slugify } from 'transliteration'
 import { debounce } from 'underscore'
-import content from '@/config/content'
 import toolbar from '@/config/toolbar'
 import keybindings from '@/config/keybindings'
 import markdown from '@/utils/markdown-it'
@@ -61,7 +60,16 @@ import 'brace/theme/chrome'
 /* eslint-disable no-useless-escape */
 export default {
   name: 'md-editor',
-  props: ['height'],
+  props: {
+    height: {
+      type: String,
+      default: '400px'
+    },
+    defaultContent: {
+      type: String,
+      default: '## Hello World~'
+    }
+  },
   data() {
     return {
       editor: null,
@@ -129,7 +137,7 @@ export default {
       this.editorKeybindings()
 
       // insert content
-      this.editSession.setValue(content)
+      this.editSession.setValue(this.defaultContent)
 
       this.editor.focus()
     },

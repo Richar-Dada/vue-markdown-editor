@@ -41,4 +41,5 @@ export default {
 
 ```
 - height--set the editor height(设置编辑器的高度) 
+- defaultContent-- set the default content of editor (设定编辑器默认内容)
 - change--get the editor content
